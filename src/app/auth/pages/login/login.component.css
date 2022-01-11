@@ -1,0 +1,10 @@
+input,
+button {
+  width: 100%;
+}
+
+.formulario {
+  padding: 30px;
+  background: #ffffff1c;
+  border-radius: 5px;
+}
