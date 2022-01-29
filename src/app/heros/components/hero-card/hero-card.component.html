@@ -19,7 +19,7 @@
           <button
             pButton
             class="p-button-sm p-button-info"
-            (click)="getHeros()"
+            (click)="showDetail(hero)"
           >
             Detalles
           </button>
@@ -37,7 +37,7 @@
             *ngIf="remove"
             pButton
             class="p-button-sm p-button-danger"
-            (click)="detallesHeroe(hero.id)"
+            (click)="removeHero(hero.id)"
           >
             Eliminar
           </button>

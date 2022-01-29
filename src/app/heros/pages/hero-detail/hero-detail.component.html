@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="card mt-5">
+    <div class="row">
+      <div class="col-6 d-flex justify-content-center">
+        <img [src]="hero.image.url" alt="" style="width: 300px" />
+      </div>
+      <div class="col-6">
+        <h4>{{ hero.name }}</h4>
+        <h6>
+          Weight: <b> {{ hero.appearance.weight[1] }} </b>
+        </h6>
+        <h6>
+          Height: <b> {{ hero.appearance.height[1] }} </b>
+        </h6>
+        <h6>
+          Name: <b> {{ hero.biography["full-name"] }} </b>
+        </h6>
+        <h6>
+          Aliases: <b> {{ hero.biography.aliases }} </b>
+        </h6>
+        <h6>
+          Eyes color: <b> {{ hero.appearance["eye-color"] }} </b>
+        </h6>
+        <h6>
+          Hair color: <b> {{ hero.appearance["hair-color"] }} </b>
+        </h6>
+        <h6>
+          Work base: <b> {{ hero.work.base }} </b>
+        </h6>
+      </div>
+    </div>
+  </div>
+</div>

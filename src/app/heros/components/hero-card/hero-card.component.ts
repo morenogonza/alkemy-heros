@@ -9,6 +9,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Result } from '../../interfaces/interfaces';
 import { HerosService } from '../../services/heros.service';
 
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-hero-card',
   templateUrl: './hero-card.component.html',
@@ -38,7 +41,7 @@ export class HeroCardComponent implements OnInit {
   @Input() add: boolean = false;
   @Input() remove: boolean = false;
 
-  constructor(private herosService: HerosService) {}
+  constructor(private herosService: HerosService, private router: Router) {}
 
   data: any;
 
@@ -51,15 +54,21 @@ export class HeroCardComponent implements OnInit {
   }
 
   addHero(hero: Result) {
-    this.herosService.addHero(hero);
+    let result = this.herosService.addHero(hero);
+    if (result.response.exists) {
+      Swal.fire('Error', result.response.exists, 'error');
+    }
+    if (result.response.alignment != '') {
+      Swal.fire('Error', result.response.alignment, 'error');
+    }
   }
 
-  getHeros() {
-    console.log(this.herosService.getHeros());
+  showDetail(hero: Result) {
+    this.router.navigateByUrl('home/detail');
+    this.herosService.setHeroDetail(hero);
   }
 
-  detallesHeroe(id: any) {
-    console.log('ID DE HEROE:', id);
-    console.log('HEROE:', this.hero);
+  removeHero(id: string) {
+    let result = this.herosService.removeHero(id);
   }
 }

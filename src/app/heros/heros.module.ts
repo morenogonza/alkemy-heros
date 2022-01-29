@@ -10,6 +10,7 @@ import { SearchComponent } from './pages/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { MainComponent } from './pages/main/main.component';
+import { HeroDetailComponent } from './pages/hero-detail/hero-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MainComponent } from './pages/main/main.component';
     ChartRadarComponent,
     SearchComponent,
     MainComponent,
+    HeroDetailComponent,
   ],
   imports: [
     CommonModule,

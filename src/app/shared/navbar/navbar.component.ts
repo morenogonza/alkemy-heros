@@ -24,8 +24,4 @@ export class NavbarComponent implements OnInit {
   redirectHome() {
     this.router.navigateByUrl('home');
   }
-
-  getHeros() {
-    console.log(this.herosService.getHeros());
-  }
 }
