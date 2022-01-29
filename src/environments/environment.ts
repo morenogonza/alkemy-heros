@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   loginUrl: 'http://challenge-react.alkemy.org/',
-  herosUrl: 'https://superheroapi.com/api/',
+  herosUrl: 'https://superheroapi.com/api',
   token: '4771311166286031',
 };
 

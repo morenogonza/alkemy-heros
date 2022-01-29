@@ -1,0 +1,55 @@
+<div class="container mt-5">
+  <form (ngSubmit)="getHeroByName(searchValue.value)">
+    <div class="card">
+      <div class="row">
+        <div class="col-2">
+          <input
+            type="text"
+            pInputText
+            #searchValue
+            placeholder="Serch hero"
+            (keyup)="removeNoResults()"
+          />
+        </div>
+        <div class="col-2" style="margin-left: 20px">
+          <p-button type="submit" icon="pi pi-search" iconPos="right">
+            <div *ngIf="showSpinner">
+              <p-progressSpinner
+                [style]="{
+                  width: '35px',
+                  height: '35px',
+                  position: 'absolute',
+                  top: '2px',
+                  left: 0
+                }"
+                styleClass="custom-spinner"
+                strokeWidth="3"
+                fill="#64B5F6"
+                animationDuration=".5s"
+              ></p-progressSpinner>
+            </div>
+          </p-button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div *ngIf="heros">
+    <div class="card">
+      <div class="row">
+        <div
+          class="mt-5 col d-flex justify-content-center"
+          *ngFor="let hero of heros"
+        >
+          <app-hero-card [add]="true" [hero]="hero"></app-hero-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="noResults">
+    <div class="card">
+      <h6>Nothing founded whith value "{{ searchValue.value }}"</h6>
+    </div>
+  </div>
+</div>

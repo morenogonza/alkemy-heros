@@ -1,0 +1,48 @@
+<div class="tp-wrapper">
+  <div
+    class="tp-box"
+    [@flipState]="flip"
+    (mouseenter)="toggleFlip()"
+    (mouseleave)="toggleFlip()"
+  >
+    <div class="tp-box__side tp-box__front front">
+      <img [src]="hero.image.url" />
+      <h5 class="heroName">{{ hero.name }}</h5>
+    </div>
+
+    <div class="tp-box__side tp-box__back back">
+      <div class="row">
+        <app-chart-radar [chartData]="hero.powerstats"></app-chart-radar>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-6 d-flex justify-content-center">
+          <button
+            pButton
+            class="p-button-sm p-button-info"
+            (click)="getHeros()"
+          >
+            Detalles
+          </button>
+        </div>
+        <div class="col-6 d-flex justify-content-center">
+          <button
+            *ngIf="add"
+            pButton
+            class="p-button-sm p-button-success"
+            (click)="addHero(hero)"
+          >
+            Agregar
+          </button>
+          <button
+            *ngIf="remove"
+            pButton
+            class="p-button-sm p-button-danger"
+            (click)="detallesHeroe(hero.id)"
+          >
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+p {
+  font-family: Lato;
+}
+
+.front img,
+.back img {
+  width: 260px;
+  height: 320px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.tp-wrapper {
+  perspective: 1000px;
+  width: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.tp-box {
+  position: relative;
+  width: 280px;
+  height: 320px;
+  transform-style: preserve-3d;
+  transform: transform 1s;
+  display: flex;
+  justify-content: center;
+}
+.tp-box__side {
+  position: absolute;
+  backface-visibility: hidden;
+  user-select: none;
+}
+.tp-box__front {
+  transform: rotateY(0deg);
+}
+.tp-box__back {
+  transform: rotateY(180deg);
+}
+
+.heroName {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.55);
+  padding: 10px 0;
+}

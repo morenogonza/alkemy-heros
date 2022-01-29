@@ -1,0 +1,10 @@
+.container-prime {
+  background: var(--surface-a);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.card {
+  background-color: var(--surface-a);
+  padding: 20px;
+}

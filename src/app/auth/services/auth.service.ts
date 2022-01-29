@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { AuthResponse } from '../interfaces/interfaces';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ import { AuthResponse } from '../interfaces/interfaces';
 export class AuthService {
   private baseUrl = environment.loginUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(email: string, password: string) {
     const url = this.baseUrl;
@@ -27,5 +28,6 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
+    this.router.navigateByUrl('auth');
   }
 }
