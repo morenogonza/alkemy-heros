@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ValidateLoginGuard } from './guards/validate-login.guard';
 
 const routes: Routes = [
   {
@@ -10,6 +11,7 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () =>
       import('./heros/heros.module').then((m) => m.HerosModule),
+    canActivate: [ValidateLoginGuard],
   },
   {
     path: '**',
